@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |spec|
   spec.name           = 'MiniBuddy'
-  spec.version        = '0.0.1'
+  spec.version        = '0.1.0'
   spec.summary        = 'Minimum swift implementation of PlistBuddy.'
   spec.homepage       = 'https://github.com/otiai10/MiniBuddy'
   spec.license        = { type: 'MIT', file: 'LICENSE' }
