@@ -10,3 +10,7 @@
 % pod lib spec
 % swift test
 ```
+
+```sh
+% swift run minibuddy set "CFBundleVersion=" --path ./Tests/Example-Info.plist
+```
