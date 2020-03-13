@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |spec|
   spec.name           = 'MiniBuddy'
-  spec.version        = '0.1.0'
+  spec.version        = '0.2.0'
   spec.summary        = 'Minimum swift implementation of PlistBuddy.'
   spec.homepage       = 'https://github.com/otiai10/MiniBuddy'
   spec.license        = { type: 'MIT', file: 'LICENSE' }
   spec.author         = { 'Hiromu OCHIAI' => 'otiai10@gmail.com' }
-  spec.source         = { http: "#{spec.homepage}/archive/#{spec.version}.zip" }
+  spec.source         = { http: "#{spec.homepage}/releases/download/#{spec.version}/MiniBuddy.zip"}
   spec.preserve_paths = '*'
   spec.description    = <<-DESC
     Minimum Swift implementation of PlistBuddy,

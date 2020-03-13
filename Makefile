@@ -1,12 +1,15 @@
 
+clean:
+	rm -f MiniBuddy.zip
+
 build:
 	swift build -c release
 
-package:
+MiniBuddy.zip:
 	mkdir -p MiniBuddy
 	cp $(shell swift build -c release --show-bin-path)/minibuddy MiniBuddy
 	cp ./LICENSE MiniBuddy
 	zip -r MiniBuddy.zip MiniBuddy/*
 	rm -rf MiniBuddy
 
-release: build package
+release: clean build MiniBuddy.zip
