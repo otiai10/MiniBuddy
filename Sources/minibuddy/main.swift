@@ -11,7 +11,7 @@ if let verb = arguments.first {
     print(verb)
     if let result = commands.run(command: verb, arguments: arguments) {
         switch result {
-        case .success(()):
+        case .success:
             print("SUCCESS!!")
         case .failure(let err):
             print(err)

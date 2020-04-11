@@ -23,11 +23,11 @@ struct SetCommand: CommandProtocol {
 
         // {{{ Set next value
         plist[opt.key] = {(currentValue: Any?, nextValue: Any?) -> String in
-            if let nv = nextValue as? String {
-                return nv
+            if let nextValue = nextValue as? String {
+                return nextValue
             }
-            if let v: Int = currentValue as? Int {
-                return String(v + 1)
+            if let currentValue: Int = currentValue as? Int {
+                return String(currentValue + 1)
             }
             return String(1)
         }(plist[opt.key], opt.value)
@@ -50,15 +50,15 @@ struct SetOptions: OptionsProtocol {
     let key: String
     let value: Any?
     static func create(_ path: String) -> (String) -> SetOptions {
-        return { kv in
-            let pair = kv.split(separator: "=")
+        return { keyvalue in
+            let pair = keyvalue.split(separator: "=")
             return SetOptions(path: path, key: String(pair[0]), value: pair.count > 1 ? pair[1] : nil)
         }
     }
-    static func evaluate(_ m: CommandMode) -> Result<SetOptions, CommandantError<Error>> {
+    static func evaluate(_ mode: CommandMode) -> Result<SetOptions, CommandantError<Error>> {
         return create
-            <*> m <| Option(key: "path", defaultValue: "Info.plist", usage: "plist file path")
-            <*> m <| Argument(usage: "key=value to update")
+            <*> mode <| Option(key: "path", defaultValue: "Info.plist", usage: "plist file path")
+            <*> mode <| Argument(usage: "key=value to update")
     }
 
 }
