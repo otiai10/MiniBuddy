@@ -11,6 +11,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/Carthage/Commandant.git", .upToNextMinor(from: "0.17.0")),
+        .package(url: "https://github.com/realm/SwiftLint.git", .upToNextMinor(from: "0.39.0"))
     ],
     targets: [
         .target(
